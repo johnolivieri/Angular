@@ -1,5 +1,12 @@
 # MyBooks
 
+This project is the Angular version of the my-books application discussed in the book:
+
+Aurelia in Action
+By Sean Hunter
+Manning Early Access Program, Version 7
+www.manning.com
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
 ## Development server
