@@ -1,0 +1,29 @@
+<div class="container">
+  <app-heading [text]="'books'"></app-heading>
+
+  <div class="card">
+    <div class="card-block">
+      <form class="form-inline" (ngSubmit)="addBook()" #bookForm="ngForm">
+        <label for="bookTitle"></label>
+        <input
+            type="text"
+            class="form-control"
+            name="bookTitle"
+            placeholder="book title..."
+            [(ngModel)]="bookTitle">
+
+        <input
+            class="btn btn-success tap-right"
+            type="submit"
+            value="add"
+            [disabled]='canAdd'>
+      </form>
+    </div>
+  </div>
+
+  <hr/>
+  <app-book-list [books]="books"></app-book-list>
+
+  <hr/>
+  <!-- <app-book-stats *ngIf="books.length > 0" [books]="books"></app-book-stats> -->
+</div>
