@@ -1,7 +1,26 @@
+<div class="card">
+  <div class="card-reader form-inline">
+    <div class="input-group">
+      <span class="input-group-addon" id="filter-icon">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </span>
+      <input
+          type="text"
+          class="form-control"
+          placeholder="filter"
+          aria-describedby="filter-icon"
+          [(ngModel)]="searchTerm">
+    </div>
+  </div>
+</div>
+
 <ul class="books list-group list-group-flush">
-  <li class="list-group-item {{isEven ? 'book-even' : ''}}" *ngFor="let book of books; index as i; first as isFirst; last as isLast; even as isEven">
+  <li class="list-group-item " *ngFor="let book of books | filter: searchTerm; index as i">
     <div class="book row">
-      <div class="col-10">{{book.title}} {{bookLocation(isFirst, isLast)}}</div>
+      <div class="col-10" [innerHtml]="book.title | searchBold: searchTerm | highlight">{{book.title}}</div>
+      <span class="col-1">
+        <i class="fa {{book.status | bookStatus}}"></i>
+      </span>
       <div class="col-1">
         <span class="remove-button" (click)="removeBook(i)" placement="right" ngbTooltip="Remove book from list">
           <i class="fa fa-trash" aria-hidden="true"></i>

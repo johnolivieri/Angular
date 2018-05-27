@@ -9,12 +9,20 @@ import { Book } from '../book';
 })
 export class BookListComponent {
   @Input() books: Book[];
+  searchTerm: string;
 
-  constructor() { }
+  constructor() {
+    this.searchTerm = '';
+  }
 
   bookLocation(isFirst: boolean, isLast: boolean): string {
-    if (isFirst) return '- first book';
-    if (isLast) return '- last book';
+    if (isFirst) {
+      return '- first book';
+    }
+
+    if (isLast) {
+      return '- last book';
+    }
 
     return '';
   }
